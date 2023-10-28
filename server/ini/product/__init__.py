@@ -81,6 +81,23 @@ def product_byID(request):
         response = cursor.fetchone()
     return {'greet': 'ok', 'data': response}
 
+@view_config(route_name='product-count', request_method='POST', renderer="json")
+def product_count(request):
+    '''Create a product view to count'''
+    # get data from request body
+    list_id = request.json_body['data']
+    with connection.cursor() as cursor:
+        sql = "SELECT id, product_price FROM `assets`;"
+        cursor.execute(sql)
+        response = cursor.fetchall()
+    
+    sum_response = 0
+    for item in response:
+        if item['id'] not in list_id:
+            continue
+        sum_response = sum_response + item['product_price']
+    return {'greet': 'ok', 'data': (sum_response)}
+
 def main(global_config, **settings):
     config = Configurator()
     config.add_route('product', '/')
@@ -88,6 +105,7 @@ def main(global_config, **settings):
     config.add_route('product-update', '/product-update')
     config.add_route('product-delete', '/product-delete')
     config.add_route('product-byID', '/product')
+    config.add_route('product-count', '/product-count')
     config.scan()
     config.add_static_view(name='static', path='static')
     app = config.make_wsgi_app()

@@ -14,7 +14,7 @@ function Product() {
       setNamaProduk("");
     };
 
-    const openHandle = (id, namaProduk) => {
+    const openHandleDelete = (id, namaProduk) => {
         setShow(true);
         setId(id);
         setNamaProduk(namaProduk);
@@ -66,13 +66,13 @@ function Product() {
                         <td>{item.stok}</td>
                         <td>
                             <Stack direction="horizontal" gap={2}>
-                                <Button variant="primary" onClick={() => openHandle(item.id, item.nama_produk)}>
+                                <Button variant="primary" onClick={() => openHandleDelete(item.id, item.nama_produk)}>
                                     Lihat
                                 </Button>
-                                <Button variant="warning" onClick={() => openHandle(item.id, item.nama_produk)}>
+                                <Button variant="warning" onClick={() => openHandleDelete(item.id, item.nama_produk)}>
                                     Edit
                                 </Button>
-                                <Button variant="danger" onClick={() => openHandle(item.id, item.nama_produk)}>
+                                <Button variant="danger" onClick={() => openHandleDelete(item.id, item.nama_produk)}>
                                     Delete
                                 </Button>
                             </Stack>
