@@ -1,5 +1,0 @@
-pyramid==2.0.2
-waitress==2.1.2
-pyramid_jwt==1.6.1
-pymysql==1.1.0
--e ".[dev]"
