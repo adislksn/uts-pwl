@@ -1,0 +1,9 @@
+setup.py
+product/__init__.py
+product/app.py
+product.egg-info/PKG-INFO
+product.egg-info/SOURCES.txt
+product.egg-info/dependency_links.txt
+product.egg-info/entry_points.txt
+product.egg-info/requires.txt
+product.egg-info/top_level.txt

@@ -1,0 +1,4 @@
+pyramid
+pymysql
+pyramid_jwt
+waitress
