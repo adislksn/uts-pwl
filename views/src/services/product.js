@@ -26,10 +26,30 @@ const deleteProduct = async (id) => {
         console.error(error);
     }
     }
+
+const getDetailProduct = async (id) => {
+    try {
+        const response = await axiosInstance.get(`/product?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+    }
+
+const updateProduct = async (id, data) => {
+    try {
+        const response = await axiosInstance.put(`/product-update?id=${id}`, data);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+    }
 const serviceProduct = {
     getProducts,
     editProduct,
-    deleteProduct
+    deleteProduct,
+    getDetailProduct,
+    updateProduct
 };
 
 export default serviceProduct;
